@@ -1,28 +1,320 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>Benim Portfolyom</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mehmet ERTAN | Yazılım / Sistem Geliştirici</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body { font-family: Arial; padding: 20px; background: #f2f2f2; }
-    h1 { color: #333; }
-    .project { margin-bottom: 20px; background: white; padding: 10px; border-radius: 8px; box-shadow: 2px 2px 5px #ccc; }
+    :root {
+      --main-color: #007acc;
+      --bg-light: #f9f9f9;
+      --bg-dark: #1e1e1e;
+      --text-color: #333;
+      --text-light: #ccc;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-light);
+      color: var(--text-color);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: linear-gradient(to right, #1e1e1e, #333);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    header h1 { font-size: 42px; margin-bottom: 10px; }
+    header p { font-size: 18px; color: var(--text-light); }
+
+    nav {
+      background: white;
+      padding: 10px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    nav a {
+      color: var(--main-color);
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .language-selector {
+      text-align: right;
+      padding: 10px;
+    }
+
+    .language-selector button {
+      background-color: #007acc;
+      color: white;
+      border: none;
+      padding: 10px;
+      margin: 5px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .language-selector button:hover {
+      background-color: #005fa3;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    section { margin-bottom: 60px; }
+    h2 {
+      margin-bottom: 20px;
+      color: #111;
+      border-left: 4px solid var(--main-color);
+      padding-left: 10px;
+    }
+
+    .profile-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    .about, .internship, .experience, .technologies, .contact {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+
+    .project-card img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .project-card a {
+      text-decoration: none;
+      color: white;
+      background: var(--main-color);
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 500;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    footer {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
-  <h1>Merhaba, ben Mehmet!</h1>
-  <p>Ben bir bilgisayar mühendisiyim. Aşağıda projelerimden bazılarını bulabilirsin:</p>
-
-  <div class="project">
-    <h2>Akıllı Ev Otomasyonu</h2>
-    <p>Python ile geliştirdiğim, Firebase destekli bir ev otomasyonu projesi.</p>
-    <a href="https://github.com/kullaniciadi/proje1" target="_blank">GitHub'da Gör</a>
+  <!-- Language Selector -->
+  <div class="language-selector">
+    <button id="trBtn">TR</button>
+    <button id="engBtn">ENG</button>
   </div>
 
-  <div class="project">
-    <h2>Arıza Kayıt Takip Sistemi</h2>
-    <p>Java ve Firebase kullanarak geliştirdiğim servis takip sistemi.</p>
-    <a href="https://github.com/kullaniciadi/proje2" target="_blank">GitHub'da Gör</a>
+  <header>
+    <h1 id="headerName">Mehmet ERTAN</h1>
+    <p id="headerDescription">Yazılım Ve Sistem Geliştirici • Python | Java | ASP.NET | MSSQL | Firebase</p>
+  </header>
+
+  <nav>
+    <a href="#about" id="navAbout">Hakkımda</a>
+    <a href="#internship" id="navInternship">Staj</a>
+    <a href="#experience" id="navExperience">Deneyim</a>
+    <a href="#tech" id="navTech">Teknolojiler</a>
+    <a href="#projects" id="navProjects">Projeler</a>
+    <a href="#contact" id="navContact">İletişim</a>
+  </nav>
+
+  <div class="container">
+    <section id="about" class="about">
+      <center><img src="f374a544e5-result-20230425123331.png" alt="Profil Foto" class="profile-photo"></center>
+      <h2 id="aboutTitle">Hakkımda</h2>
+      <p id="aboutText">Ben Mehmet. Bilgisayar mühendisiyim ve özellikle masaüstü uygulamalar, Firebase entegrasyonu, Python ile arayüz geliştirme ve veri analizi üzerine çalışıyorum. Kullanıcı dostu arayüzler tasarlamak, işlevsel yazılımlar üretmekten keyif alıyorum. İlgi duyduğum alanlar arasında yapay zeka, mobil uygulama geliştirme ve siber güvenlik yer alıyor.</p>
+    </section>
+
+    <section id="internship" class="internship">
+      <h2 id="internshipTitle">Staj</h2>
+      <p><strong id="internshipCompany">Şirket:FLO Group</strong> </p>
+      <p><strong id="internshipDuration">Süre:</strong> Temmuz 2023 - Eylül 2023</p>
+      <p><strong id="internshipTasks">Görevler:</strong> Analitik Düşünme, Veri Analizi, Perakende Süreçleri</p>
+    </section>
+ <section id="internship" class="internship">
+      <h2 id="internshipTitle">Staj</h2>
+      <p><strong id="internshipCompany">Şirket:Türk Standardları Enstitüsü
+</strong> </p>
+      <p><strong id="internshipDuration">Süre:</strong> Eylül 2024 - Ekim 2024</p>
+      <p><strong id="internshipTasks">Görevler:</strong> Spring Boot & Angular & MSSQL</p>
+    </section>
+    <section id="experience" class="experience">
+      <h2 id="experienceTitle">Deneyim</h2>
+      <p><strong id="experienceCompany">Şirket:</strong> </p>
+      <p><strong id="experienceDuration">Süre:</strong> Eylül 2024 - Ekim 2024</p>
+      <p><strong id="experienceTasks">Görevler:</strong> Spring Boot & Angular</p>
+    </section>
+
+    <section id="tech" class="technologies">
+      <h2 id="techTitle">Kullandığım Teknolojiler</h2>
+      <ul>
+        <li>Python (Tkinter, CustomTkinter)</li>
+        <li>Java (JavaFX)</li>
+        <li>Firebase (Realtime DB, Firestore, Storage, Auth)</li>
+        <li>HTML, CSS, JavaScript</li>
+        <li>Android Studio, GitHub</li>
+        <li>Figma ile arayüz tasarımı</li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <h2 id="projectsTitle">Projelerim</h2>
+      <div class="projects">
+        <div class="project-card">
+          <img src="https://via.placeholder.com/300x150?text=Ev+Otomasyonu" alt="Proje 1">
+          <h3>Akıllı Ev Otomasyonu</h3>
+          <p>Python ve Firebase ile geliştirilen akıllı ev kontrol sistemi. Sensör ve uzaktan komut ile cihaz yönetimi.</p>
+          <a href="https://github.com/mehmetMRE/proje1" target="_blank">GitHub</a>
+        </div>
+        <div class="project-card">
+          <img src="https://via.placeholder.com/300x150?text=Ariza+Takip" alt="Proje 2">
+          <h3>Arıza Takip Sistemi</h3>
+          <p>JavaFX ile masaüstü uygulama ve Firebase entegrasyonu ile servis takip sistemi.</p>
+          <a href="https://github.com/mehmetMRE/proje2" target="_blank">GitHub</a>
+        </div>
+        <div class="project-card">
+          <img src="https://via.placeholder.com/300x150?text=Stok+Takip" alt="Proje 3">
+          <h3>Stok Takip Uygulaması</h3>
+          <p>CustomTkinter ile geliştirilmiş, ürün stoklarını takip etmeye yarayan uygulama.</p>
+          <a href="https://github.com/mehmetMRE/proje3" target="_blank">GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2 id="contactTitle">İletişim</h2>
+      <p><strong>Email:</strong> <a href="mailto:mehmet.mre@example.com">mehmet.mre@example.com</a></p>
+      <p><strong>Telefon:</strong> +90 555 555 55 55</p>
+    </section>
   </div>
+
+  <footer>
+    <p>© 2025 Mehmet MRE. Tüm Hakları Saklıdır.</p>
+  </footer>
+
+  <script>
+    const translations = {
+      tr: {
+        headerName: "Mehmet ERTAN",
+        headerDescription: "Yazılım Ve Sistem Geliştirici • Python | Java | Firebase",
+        navAbout: "Hakkımda",
+        navInternship: "Staj",
+        navExperience: "Deneyim",
+        navTech: "Teknolojiler",
+        navProjects: "Projeler",
+        navContact: "İletişim",
+        aboutTitle: "Hakkımda",
+        aboutText: "Ben Mehmet. Bilgisayar mühendisiyim ve özellikle masaüstü uygulamalar, Firebase entegrasyonu, Python ile arayüz geliştirme ve veri analizi üzerine çalışıyorum. Kullanıcı dostu arayüzler tasarlamak, işlevsel yazılımlar üretmekten keyif alıyorum. İlgi duyduğum alanlar arasında yapay zeka, mobil uygulama geliştirme ve siber güvenlik yer alıyor.",
+        internshipTitle: "Staj",
+        internshipCompany: "Şirket:",
+        internshipDuration: "Süre:",
+        internshipTasks: "Görevler:",
+        experienceTitle: "Deneyim",
+        experienceCompany: "Şirket:",
+        experienceDuration: "Süre:",
+        experienceTasks: "Görevler:",
+        techTitle: "Kullandığım Teknolojiler",
+        projectsTitle: "Projelerim",
+        contactTitle: "İletişim"
+      },
+      eng: {
+        headerName: "Mehmet ERTAN",
+        headerDescription: "Software and System Developer • Python | Java | Firebase",
+        navAbout: "About",
+        navInternship: "Internship",
+        navExperience: "Experience",
+        navTech: "Technologies",
+        navProjects: "Projects",
+        navContact: "Contact",
+        aboutTitle: "About Me",
+        aboutText: "I'm Mehmet, a computer engineer with a focus on desktop applications, Firebase integration, Python GUI development, and data analysis. I enjoy designing user-friendly interfaces and creating functional software. My interests include AI, mobile app development, and cybersecurity.",
+        internshipTitle: "Internship",
+        internshipCompany: "Company:",
+        internshipDuration: "Duration:",
+        internshipTasks: "Tasks:",
+        experienceTitle: "Experience",
+        experienceCompany: "Company:",
+        experienceDuration: "Duration:",
+        experienceTasks: "Tasks:",
+        techTitle: "Technologies I Use",
+        projectsTitle: "My Projects",
+        contactTitle: "Contact"
+      }
+    };
+
+    const trBtn = document.getElementById("trBtn");
+    const engBtn = document.getElementById("engBtn");
+
+    const changeLanguage = (lang) => {
+      document.getElementById("headerName").textContent = translations[lang].headerName;
+      document.getElementById("headerDescription").textContent = translations[lang].headerDescription;
+      document.getElementById("navAbout").textContent = translations[lang].navAbout;
+      document.getElementById("navInternship").textContent = translations[lang].navInternship;
+      document.getElementById("navExperience").textContent = translations[lang].navExperience;
+      document.getElementById("navTech").textContent = translations[lang].navTech;
+      document.getElementById("navProjects").textContent = translations[lang].navProjects;
+      document.getElementById("navContact").textContent = translations[lang].navContact;
+      document.getElementById("aboutTitle").textContent = translations[lang].aboutTitle;
+      document.getElementById("aboutText").textContent = translations[lang].aboutText;
+      document.getElementById("internshipTitle").textContent = translations[lang].internshipTitle;
+      document.getElementById("internshipCompany").textContent = translations[lang].internshipCompany;
+      document.getElementById("internshipDuration").textContent = translations[lang].internshipDuration;
+      document.getElementById("internshipTasks").textContent = translations[lang].internshipTasks;
+      document.getElementById("experienceTitle").textContent = translations[lang].experienceTitle;
+      document.getElementById("experienceCompany").textContent = translations[lang].experienceCompany;
+      document.getElementById("experienceDuration").textContent = translations[lang].experienceDuration;
+      document.getElementById("experienceTasks").textContent = translations[lang].experienceTasks;
+      document.getElementById("techTitle").textContent = translations[lang].techTitle;
+      document.getElementById("projectsTitle").textContent = translations[lang].projectsTitle;
+      document.getElementById("contactTitle").textContent = translations[lang].contactTitle;
+    };
+
+    trBtn.addEventListener("click", () => changeLanguage("tr"));
+    engBtn.addEventListener("click", () => changeLanguage("eng"));
+  </script>
 </body>
 </html>
