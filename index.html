@@ -3,378 +3,459 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mehmet ERTAN | Yazılım / Sistem Geliştirici</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <title>Mehmet ERTAN | Yazılım Geliştirici</title>
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
   <style>
     :root {
-      --main-color: #007acc;
-      --bg-light: #f9f9f9;
-      --bg-dark: #1e1e1e;
-      --text-color: #333;
-      --text-light: #ccc;
+      --primary: #007acc;
+      --primary-dark: #005fa3;
+      --secondary: #1e1e1e;
+      --bg-body: #f4f6f8;
+      --bg-card: #ffffff;
+      --text-main: #333;
+      --text-light: #666;
+      --success: #28a745;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--bg-light);
-      color: var(--text-color);
+      background: var(--bg-body);
+      color: var(--text-main);
       line-height: 1.6;
       scroll-behavior: smooth;
     }
 
+    /* --- Header & Nav --- */
     header {
-      background: linear-gradient(to right, #1e1e1e, #333);
+      background: linear-gradient(135deg, #1e1e1e 0%, #2c3e50 100%);
       color: white;
-      padding: 60px 20px;
+      padding: 80px 20px;
       text-align: center;
+      position: relative;
     }
 
-    header h1 { font-size: 42px; margin-bottom: 10px; }
-    header p { font-size: 18px; color: var(--text-light); }
+    header h1 { font-size: 3rem; margin-bottom: 10px; font-weight: 700; letter-spacing: -1px; }
+    header p { font-size: 1.2rem; color: #cbd5e0; font-weight: 300; }
+
+    /* Language Switcher (Floating) */
+    .lang-switch {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+    .lang-switch button {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: white;
+      padding: 5px 12px;
+      cursor: pointer;
+      border-radius: 20px;
+      transition: all 0.3s;
+      font-size: 0.9rem;
+    }
+    .lang-switch button:hover, .lang-switch button.active {
+      background: var(--primary);
+      border-color: var(--primary);
+    }
 
     nav {
       background: white;
-      padding: 10px 0;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      padding: 15px 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
     nav a {
-      color: var(--main-color);
+      color: var(--text-main);
       margin: 0 15px;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.3s;
     }
+    nav a:hover { color: var(--primary); }
 
-    .language-selector {
-      text-align: right;
-      padding: 10px;
-    }
-
-    .language-selector button {
-      background-color: #007acc;
-      color: white;
-      border: none;
-      padding: 10px;
-      margin: 5px;
-      cursor: pointer;
-      border-radius: 5px;
-    }.technologies {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  max-width: 700px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-  color: #222;
-}
-
-#techTitle {
-  font-size: 1.5rem;
-  text-align: left;
-  margin-bottom: 1rem;
-  color: #111;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 0.4rem;
-}
-
-.tech-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.tech-list li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.75rem;
-  font-size: 0.95rem;
-  line-height: 1.4;
-}
-
-.tech-list img {
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-  object-fit: contain;
-  opacity: 0.9;
-}
-
-
-    .language-selector button:hover {
-      background-color: #005fa3;
-    }
-
+    /* --- Layout --- */
     .container {
       max-width: 1100px;
-      margin: auto;
-      padding: 40px 20px;
+      margin: 40px auto;
+      padding: 0 20px;
     }
 
-    section { margin-bottom: 60px; }
+    section { 
+      background: var(--bg-card);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      margin-bottom: 40px;
+      transition: transform 0.3s ease;
+    }
+
     h2 {
-      margin-bottom: 20px;
-      color: #111;
-      border-left: 4px solid var(--main-color);
-      padding-left: 10px;
+      font-size: 1.8rem;
+      color: var(--secondary);
+      margin-bottom: 25px;
+      border-left: 5px solid var(--primary);
+      padding-left: 15px;
     }
 
+    /* --- Profile --- */
+    .profile-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
     .profile-photo {
-      width: 150px;
-      height: 150px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
       object-fit: cover;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border: 4px solid white;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
       margin-bottom: 20px;
     }
 
-    .about, .internship, .experience, .technologies, .contact {
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    /* --- Experience & List items --- */
+    .job-item {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
     }
+    .job-item:last-child { border-bottom: none; margin-bottom: 0; }
+    .job-title { font-weight: 700; font-size: 1.1rem; color: var(--secondary); }
+    .job-date { font-size: 0.9rem; color: var(--text-light); margin-bottom: 10px; display: block; }
 
-    .projects {
+    /* --- Tech Stack --- */
+    .tech-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 15px;
+      text-align: center;
+    }
+    .tech-item {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: 0.3s;
+    }
+    .tech-item:hover { transform: translateY(-3px); background: #eef2f6; }
+    .tech-item img { width: 32px; height: 32px; margin-bottom: 8px; }
+
+    /* --- Projects (Modern Cards) --- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
     }
 
     .project-card {
-      background: white;
+      background: #fff;
+      border: 1px solid #eee;
       border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      padding: 20px;
+      overflow: hidden;
       transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
     }
 
     .project-card:hover {
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
       transform: translateY(-5px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      border-color: var(--primary);
     }
 
-    .project-card img {
-      max-width: 100%;
-      border-radius: 8px;
-      margin-bottom: 10px;
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      background: #000;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
     }
 
-    .project-card a {
-      text-decoration: none;
+    .card-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+    .card-content h3 { font-size: 1.25rem; margin-bottom: 10px; color: var(--secondary); }
+    .card-content p { font-size: 0.95rem; color: var(--text-light); margin-bottom: 20px; flex-grow: 1; }
+
+    .btn-buy {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 12px;
+      background: var(--success);
       color: white;
-      background: var(--main-color);
-      padding: 8px 16px;
-      border-radius: 6px;
-      font-weight: 500;
-      display: inline-block;
-      margin-top: 10px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.3s;
+      margin-top: auto;
+    }
+    .btn-buy:hover { background: #218838; }
+    .fa-telegram { font-size: 1.2rem; }
+
+    /* --- Footer --- */
+    footer {
+      background: var(--secondary);
+      color: #7f8c8d;
+      text-align: center;
+      padding: 30px;
+      margin-top: 40px;
     }
 
-    footer {
-      background: var(--bg-dark);
-      color: var(--text-light);
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
+    /* Mobile */
+    @media (max-width: 768px) {
+      header h1 { font-size: 2rem; }
+      nav { display: none; } /* Basitlik için mobilde nav gizlendi veya hamburger menü eklenebilir. Şimdilik scroll yeterli. */
+      .projects-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <!-- Language Selector -->
-  <div class="language-selector">
-    <button id="trBtn">TR</button>
-    <button id="engBtn">ENG</button>
+
+  <!-- Language Switcher -->
+  <div class="lang-switch">
+    <button onclick="setLang('tr')" id="btnTr" class="active">TR</button>
+    <button onclick="setLang('en')" id="btnEn">ENG</button>
   </div>
 
   <header>
-    <h1 id="headerName">Mehmet ERTAN</h1>
-    <p id="headerDescription">Yazılım Ve Sistem Geliştirici • Python | Java | ASP.NET | MSSQL | Firebase</p>
+    <div class="header-content">
+      <h1 id="t_name">Mehmet ERTAN</h1>
+      <p id="t_role">Yazılım & Sistem Geliştirici</p>
+    </div>
   </header>
 
   <nav>
-    <a href="#about" id="navAbout">Hakkımda</a>
-    <a href="#internship" id="navInternship">Staj</a>
-    <a href="#experience" id="navExperience">Deneyim</a>
-    <a href="#tech" id="navTech">Teknolojiler</a>
-    <a href="#projects" id="navProjects">Projeler</a>
-    <a href="#contact" id="navContact">İletişim</a>
+    <a href="#about" id="nav_about">Hakkımda</a>
+    <a href="#experience" id="nav_exp">Deneyim</a>
+    <a href="#tech" id="nav_tech">Teknolojiler</a>
+    <a href="#projects" id="nav_proj">Projeler</a>
+    <a href="#contact" id="nav_contact">İletişim</a>
   </nav>
 
   <div class="container">
-    <section id="about" class="about">
-      <center><img src="f374a544e5-result-20230425123331.png" alt="Profil Foto" class="profile-photo"></center>
-      <h2>Hakkımda</h2>
-  <p>
-    Bilgisayar sistemleri, ağ yapıları ve sunucu yönetimi konularına olan ilgi duyuyor, bu alanda eğitimler alıyorum.
- 
-  </p>
-  <p>
-    Bununla birlikte Python, Java ve ASP.NET başta olmak üzere çeşitli dillerle çalıştığım projelerim oldu. 
-    Bu portfolyo, hem sistem hem de yazılım alanındaki çalışmalarımı bir araya getirdiğim kişisel bir alan.
-  </p>
-  <p>
-    Amacım, teknik bilgimi geliştirmeye devam ederken sistem yönetimi üzerine daha fazla deneyim kazanmak ve bu alanda profesyonel olarak ilerlemek.
-  </p>
+    
+    <!-- Hakkımda -->
+    <section id="about" class="profile-header">
+      <!-- FOTOĞRAF YOLUNU BURAYA GİRİNİZ -->
+      <img src="f374a544e5-result-20230425123331.png" alt="Mehmet Ertan" class="profile-photo">
+      <h2 id="t_about_title" style="border:none; margin-bottom:10px;">Hakkımda</h2>
+      <p id="t_about_desc" style="max-width: 800px; margin: 0 auto;">
+        Bilgisayar sistemleri, ağ yapıları ve sunucu yönetimi konularına ilgi duyuyor, bu alanda eğitimler alıyorum. 
+        Python, Java ve ASP.NET başta olmak üzere çeşitli dillerle projeler geliştirdim. 
+        Amacım teknik bilgimi geliştirmeye devam ederken sistem yönetimi üzerine deneyim kazanmak.
+      </p>
     </section>
 
-    <section id="internship" class="internship">
-      <h2 id="internshipTitle">Staj</h2>
-      <p><strong id="internshipCompany">Şirket:FLO Group</strong> </p>
-      <p><strong id="internshipDuration">Süre:</strong> Ağustos 2023 - Eylül 2023</p>
-      <p><strong id="internshipTasks">Görevler:</strong> Analitik Düşünme, Veri Analizi, Perakende Süreçleri</p>
-    </section>
- <section id="internship" class="internship">
-      <h2 id="internshipTitle">Staj</h2>
-      <p><strong id="internshipCompany">Şirket:Türk Standardları Enstitüsü
-</strong> </p>
-      <p><strong id="internshipDuration">Süre:</strong> Eylül 2024 - Ekim 2024</p>
-      <p><strong id="internshipTasks">Görevler:</strong> Spring Boot & Angular & MSSQL</p>
-    </section>
-    <section id="experience" class="experience">
-      <h2 id="experienceTitle">Deneyim</h2>
-      <p><strong id="experienceCompany">Şirket:NAS Accounts    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;               Uzaktan,Londra</strong> </p>
-      <p><strong id="experienceDuration">Süre:</strong> Ocak 2025 - Nisan 2025</p>
-      <p><strong id="experienceTasks">Görevler:Part Time Payroll Assistant</strong> </p>
-    </section>
+    <!-- Deneyim & Staj -->
+    <section id="experience">
+      <h2 id="t_exp_title">Deneyim & Staj</h2>
+      
+   
 
-    <section id="tech" class="technologies">
-  <h2 id="techTitle">Kullandığım Teknolojiler</h2>
-  <ul class="tech-list">
-    <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"> Python (Tkinter, NumPy, Pandas, TensorFlow, Seaborn, OpenCV)</li>
-    <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"> Java</li>
-    <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt="ASP.NET"> ASP.NET</li>
-    <li><img src="https://firebase.google.com/images/brand-guidelines/logo-logomark.png" alt="Firebase"> Firebase (Realtime DB, Firestore, Storage, Auth)</li>
-    <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="MSSQL"> MSSQL</li>
-    <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"> HTML</li>
-    <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" alt="Android"> Android Studio, MS Office</li>
-    <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C"> C & C++</li>
-  </ul>
-</section>
+      <div class="job-item">
+        <div class="job-title">Türk Standardları Enstitüsü (Staj)</div>
+        <span class="job-date" id="t_exp_date2">Eylül 2024 - Ekim 2024</span>
+        <p id="t_exp_desc2">Spring Boot, Angular & MSSQL ile kurumsal uygulama geliştirme süreçleri.</p>
+      </div>
 
-
-    <section id="projects">
-      <h2 id="projectsTitle">Projelerim</h2>
-      <div class="projects">
-        <div class="project-card">
-          
-          <h3>Servis Yönetim Uygulaması </h3>
-<p>Python ve Firebase ile geliştirilen Müşteri Yönetim Sistemi.</p>
-
-<div style="max-width: 100%; height: auto; overflow: hidden;">
-  <iframe width="100%" height="200" 
-          src="https://www.youtube.com/embed/7aqn79Z78hE" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-  </iframe>
-</div>
-
-
-<a href="https://github.com/mehmetMRE/proje1" target="_blank">GitHub</a>
-
-          <h3>Arıza Takip Sistemi</h3>
-          <p>JavaFX ile masaüstü uygulama ve Firebase entegrasyonu ile servis takip sistemi.</p>
-          <a href="https://github.com/mehmetMRE/proje2" target="_blank">GitHub</a>
-        </div>
-        <div class="project-card">
-          
-          <h3>Stok Takip Uygulaması</h3>
-          <p>CustomTkinter ile geliştirilmiş, ürün stoklarını takip etmeye yarayan uygulama.</p>
-          <a href="https://github.com/mehmetMRE/proje3" target="_blank">GitHub</a>
-        </div>
+      <div class="job-item">
+        <div class="job-title">FLO Group (Staj)</div>
+        <span class="job-date" id="t_exp_date3">Ağustos 2023 - Eylül 2023</span>
+        <p id="t_exp_desc3">Veri Analizi ve Perakende Süreçleri üzerine çalışmalar.</p>
       </div>
     </section>
 
-    <section id="contact" class="contact">
-      <h2 id="contactTitle">İletişim</h2>
-      <p><strong>Email:</strong> <a href="mailto:mehmet.mre@example.com">mehmet.mre@example.com</a></p>
-      <p><strong>Telefon:</strong> +90 555 555 55 55</p>
+    <!-- Teknolojiler -->
+    <section id="tech">
+      <h2 id="t_tech_title">Teknolojiler</h2>
+      <div class="tech-grid">
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">Python</div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">Java</div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt=".NET">ASP.NET</div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase">Firebase</div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="SQL">MSSQL</div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" alt="Android">Android</div>
+      </div>
     </section>
+
+    <!-- PROJELER -->
+    <section id="projects">
+      <h2 id="t_proj_title">Uygulamalarım</h2>
+      <div class="projects-grid">
+        
+        <!-- PROJE 1: DDENTAL UI -->
+        <div class="project-card">
+          <div class="video-wrapper">
+            <!-- YOUTUBE LINKI BURAYA: src kısmındaki embed linkini değiştirin -->
+            <iframe src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID_1" title="DDental UI" allowfullscreen></iframe>
+          </div>
+          <div class="card-content">
+            <h3>DDental UI Uygulaması</h3>
+            <p id="t_p1_desc">Diş klinikleri için geliştirilmiş modern hasta takip ve randevu yönetim arayüzü. Kolay kullanım ve şık tasarım.</p>
+            <!-- TELEGRAM LINKI -->
+            <a href="https://t.me/Mehmetmre" target="_blank" class="btn-buy" id="t_p1_btn">
+              <i class="fab fa-telegram-plane"></i> <span class="buy-text">Satın Al / İletişime Geç</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- PROJE 2: HIZLI POS -->
+        <div class="project-card">
+          <div class="video-wrapper">
+             <!-- YOUTUBE LINKI BURAYA -->
+            <iframe src="https://youtu.be/IbfBkhp-1DA?si=CDlTLAaKjcHGLvWS" title="Hızlı POS" allowfullscreen></iframe>
+          </div>
+          <div class="card-content">
+            <h3>Hızlı POS Uygulaması</h3>
+            <p id="t_p2_desc">İşletmeler için barkod okuma, stok düşme ve hızlı satış yapma imkanı sunan masaüstü POS çözümü.</p>
+            <!-- TELEGRAM LINKI -->
+            <a href="https://t.me/KULLANICI_ADINIZ" target="_blank" class="btn-buy" id="t_p2_btn">
+              <i class="fab fa-telegram-plane"></i> <span class="buy-text">Satın Al / İletişime Geç</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- PROJE 3: MSERVIS -->
+        <div class="project-card">
+          <div class="video-wrapper">
+             <!-- YOUTUBE LINKI BURAYA -->
+            <iframe src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID_3" title="MServis" allowfullscreen></iframe>
+          </div>
+          <div class="card-content">
+            <h3>MServis Uygulaması</h3>
+            <p id="t_p3_desc">Teknik servisler için cihaz kabul, onarım durumu takibi ve müşteri bilgilendirme sistemi.</p>
+            <!-- TELEGRAM LINKI -->
+            <a href="https://t.me/KULLANICI_ADINIZ" target="_blank" class="btn-buy" id="t_p3_btn">
+              <i class="fab fa-telegram-plane"></i> <span class="buy-text">Satın Al / İletişime Geç</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- İletişim -->
+    <section id="contact" style="text-align:center;">
+      <h2 id="t_contact_title">İletişim</h2>
+      <p>Email: <a href="mailto:mehmet.mre@example.com" style="color:var(--primary); text-decoration:none;">mehmet.mre@example.com</a></p>
+    </section>
+
   </div>
 
   <footer>
-    <p>© 2025 Mehmet MRE. Tüm Hakları Saklıdır.</p>
+    <p>© 2025 Mehmet ERTAN. Tüm Hakları Saklıdır.</p>
   </footer>
 
   <script>
-    const translations = {
+    // Çeviri Verileri
+    const langData = {
       tr: {
-        headerName: "Mehmet ERTAN",
-        headerDescription: "Yazılım Ve Sistem Geliştirici • Python | Java | Firebase",
-        navAbout: "Hakkımda",
-        navInternship: "Staj",
-        navExperience: "Deneyim",
-        navTech: "Teknolojiler",
-        navProjects: "Projeler",
-        navContact: "İletişim",
-        aboutTitle: "Hakkımda",
-        aboutText: "Ben Mehmet. Bilgisayar mühendisiyim ve özellikle masaüstü uygulamalar, Firebase entegrasyonu, Python ile arayüz geliştirme ve veri analizi üzerine çalışıyorum. Kullanıcı dostu arayüzler tasarlamak, işlevsel yazılımlar üretmekten keyif alıyorum. İlgi duyduğum alanlar arasında yapay zeka, mobil uygulama geliştirme ve siber güvenlik yer alıyor.",
-        internshipTitle: "Staj",
-        internshipCompany: "Şirket:",
-        internshipDuration: "Süre:",
-        internshipTasks: "Görevler:",
-        experienceTitle: "Deneyim",
-        experienceCompany: "Şirket:",
-        experienceDuration: "Süre:",
-        experienceTasks: "Görevler:",
-        techTitle: "Kullandığım Teknolojiler",
-        projectsTitle: "Projelerim",
-        contactTitle: "İletişim"
+        role: "Yazılım & Sistem Geliştirici",
+        nav_about: "Hakkımda",
+        nav_exp: "Deneyim",
+        nav_tech: "Teknolojiler",
+        nav_proj: "Projeler",
+        nav_contact: "İletişim",
+        about_title: "Hakkımda",
+        about_desc: "Bilgisayar sistemleri, ağ yapıları ve sunucu yönetimi konularına ilgi duyuyor, bu alanda eğitimler alıyorum. Python, Java ve ASP.NET başta olmak üzere çeşitli dillerle projeler geliştirdim. Amacım teknik bilgimi geliştirmeye devam ederken sistem yönetimi üzerine deneyim kazanmak.",
+        exp_title: "Deneyim & Staj",
+        exp_date1: "Ocak 2025 - Nisan 2025",
+        exp_desc1: "Part Time Payroll Assistant",
+        exp_desc2: "Spring Boot, Angular & MSSQL ile kurumsal uygulama geliştirme süreçleri.",
+        exp_desc3: "Veri Analizi ve Perakende Süreçleri üzerine çalışmalar.",
+        tech_title: "Teknolojiler",
+        proj_title: "Uygulamalarım",
+        p1_desc: "Diş klinikleri için geliştirilmiş modern hasta takip ve randevu yönetim arayüzü. Kolay kullanım ve şık tasarım.",
+        p2_desc: "İşletmeler için barkod okuma, stok düşme ve hızlı satış yapma imkanı sunan masaüstü POS çözümü.",
+        p3_desc: "Teknik servisler için cihaz kabul, onarım durumu takibi ve müşteri bilgilendirme sistemi.",
+        buy_btn: "Satın Al / İletişime Geç",
+        contact_title: "İletişim"
       },
-      eng: {
-        headerName: "Mehmet ERTAN",
-        headerDescription: "Software and System Developer • Python | Java | Firebase",
-        navAbout: "About",
-        navInternship: "Internship",
-        navExperience: "Experience",
-        navTech: "Technologies",
-        navProjects: "Projects",
-        navContact: "Contact",
-        aboutTitle: "About Me",
-        aboutText: "I'm Mehmet, a computer engineer with a focus on desktop applications, Firebase integration, Python GUI development, and data analysis. I enjoy designing user-friendly interfaces and creating functional software. My interests include AI, mobile app development, and cybersecurity.",
-        internshipTitle: "Internship",
-        internshipCompany: "Company:",
-        internshipDuration: "Duration:",
-        internshipTasks: "Tasks:",
-        experienceTitle: "Experience",
-        experienceCompany: "Company:",
-        experienceDuration: "Duration:",
-        experienceTasks: "Tasks:",
-        techTitle: "Technologies I Use",
-        projectsTitle: "My Projects",
-        contactTitle: "Contact"
+      en: {
+        role: "Software & System Developer",
+        nav_about: "About",
+        nav_exp: "Experience",
+        nav_tech: "Technologies",
+        nav_proj: "Projects",
+        nav_contact: "Contact",
+        about_title: "About Me",
+        about_desc: "I am interested in computer systems, network structures, and server management. I have developed projects using various languages, primarily Python, Java, and ASP.NET. My goal is to gain experience in system management while continuing to improve my technical knowledge.",
+        exp_title: "Experience & Internship",
+        exp_date1: "January 2025 - April 2025",
+        exp_desc1: "Part Time Payroll Assistant",
+        exp_desc2: "Enterprise application development processes with Spring Boot, Angular & MSSQL.",
+        exp_desc3: "Studies on Data Analysis and Retail Processes.",
+        tech_title: "Technologies",
+        proj_title: "My Applications",
+        p1_desc: "Modern patient tracking and appointment management interface developed for dental clinics.",
+        p2_desc: "Desktop POS solution offering barcode reading, stock deduction, and quick sales for businesses.",
+        p3_desc: "Device acceptance, repair status tracking, and customer notification system for technical services.",
+        buy_btn: "Buy / Contact",
+        contact_title: "Contact"
       }
     };
 
-    const trBtn = document.getElementById("trBtn");
-    const engBtn = document.getElementById("engBtn");
+    function setLang(lang) {
+      // Buton aktiflik durumu
+      document.getElementById('btnTr').classList.toggle('active', lang === 'tr');
+      document.getElementById('btnEn').classList.toggle('active', lang === 'en');
 
-    const changeLanguage = (lang) => {
-      document.getElementById("headerName").textContent = translations[lang].headerName;
-      document.getElementById("headerDescription").textContent = translations[lang].headerDescription;
-      document.getElementById("navAbout").textContent = translations[lang].navAbout;
-      document.getElementById("navInternship").textContent = translations[lang].navInternship;
-      document.getElementById("navExperience").textContent = translations[lang].navExperience;
-      document.getElementById("navTech").textContent = translations[lang].navTech;
-      document.getElementById("navProjects").textContent = translations[lang].navProjects;
-      document.getElementById("navContact").textContent = translations[lang].navContact;
-      document.getElementById("aboutTitle").textContent = translations[lang].aboutTitle;
-      document.getElementById("aboutText").textContent = translations[lang].aboutText;
-      document.getElementById("internshipTitle").textContent = translations[lang].internshipTitle;
-      document.getElementById("internshipCompany").textContent = translations[lang].internshipCompany;
-      document.getElementById("internshipDuration").textContent = translations[lang].internshipDuration;
-      document.getElementById("internshipTasks").textContent = translations[lang].internshipTasks;
-      document.getElementById("experienceTitle").textContent = translations[lang].experienceTitle;
-      document.getElementById("experienceCompany").textContent = translations[lang].experienceCompany;
-      document.getElementById("experienceDuration").textContent = translations[lang].experienceDuration;
-      document.getElementById("experienceTasks").textContent = translations[lang].experienceTasks;
-      document.getElementById("techTitle").textContent = translations[lang].techTitle;
-      document.getElementById("projectsTitle").textContent = translations[lang].projectsTitle;
-      document.getElementById("contactTitle").textContent = translations[lang].contactTitle;
-    };
+      // Metinleri güncelle
+      const d = langData[lang];
+      document.getElementById('t_role').textContent = d.role;
+      document.getElementById('nav_about').textContent = d.nav_about;
+      document.getElementById('nav_exp').textContent = d.nav_exp;
+      document.getElementById('nav_tech').textContent = d.nav_tech;
+      document.getElementById('nav_proj').textContent = d.nav_proj;
+      document.getElementById('nav_contact').textContent = d.nav_contact;
+      document.getElementById('t_about_title').textContent = d.about_title;
+      document.getElementById('t_about_desc').textContent = d.about_desc;
+      document.getElementById('t_exp_title').textContent = d.exp_title;
+      document.getElementById('t_exp_date1').textContent = d.exp_date1;
+      document.getElementById('t_exp_desc1').textContent = d.exp_desc1;
+      document.getElementById('t_exp_desc2').textContent = d.exp_desc2;
+      document.getElementById('t_exp_desc3').textContent = d.exp_desc3;
+      document.getElementById('t_tech_title').textContent = d.tech_title;
+      document.getElementById('t_proj_title').textContent = d.proj_title;
+      
+      // Proje Açıklamaları
+      document.getElementById('t_p1_desc').textContent = d.p1_desc;
+      document.getElementById('t_p2_desc').textContent = d.p2_desc;
+      document.getElementById('t_p3_desc').textContent = d.p3_desc;
 
-    trBtn.addEventListener("click", () => changeLanguage("tr"));
-    engBtn.addEventListener("click", () => changeLanguage("eng"));
+      // Buton Yazıları
+      const buttons = document.querySelectorAll('.buy-text');
+      buttons.forEach(span => span.textContent = d.buy_btn);
+
+      document.getElementById('t_contact_title').textContent = d.contact_title;
+    }
   </script>
 </body>
 </html>
