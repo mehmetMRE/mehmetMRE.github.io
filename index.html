@@ -3,163 +3,280 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mehmet ERTAN | Yazılım Geliştirici</title>
-  <!-- Google Fonts: Inter -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <!-- FontAwesome for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <title>Mehmet ERTAN | Portfolio</title>
   
+  <!-- Fonts: Inter & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     :root {
-      --primary: #007acc;
-      --primary-dark: #005fa3;
-      --secondary: #1e1e1e;
-      --bg-body: #f4f6f8;
-      --bg-card: #ffffff;
-      --text-main: #333;
-      --text-light: #666;
-      --success: #28a745;
+      --primary: #2563eb;       /* Modern Royal Blue */
+      --primary-dark: #1e40af;
+      --accent: #0ea5e9;        /* Sky Blue */
+      --dark-bg: #0f172a;       /* Slate 900 */
+      --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-light: #64748b;
+      --success: #10b981;
+      --gradient-bg: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      --glass-bg: rgba(255, 255, 255, 0.85);
+      --glass-border: 1px solid rgba(255, 255, 255, 0.5);
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    
+
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--bg-body);
+      background: var(--gradient-bg);
       color: var(--text-main);
-      line-height: 1.6;
-      scroll-behavior: smooth;
+      line-height: 1.7;
+      overflow-x: hidden;
     }
 
-    /* --- Header & Nav --- */
-    header {
-      background: linear-gradient(135deg, #1e1e1e 0%, #2c3e50 100%);
-      color: white;
-      padding: 80px 20px;
-      text-align: center;
-      position: relative;
+    h1, h2, h3, h4 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--dark-bg);
     }
 
-    header h1 { font-size: 3rem; margin-bottom: 10px; font-weight: 700; letter-spacing: -1px; }
-    header p { font-size: 1.2rem; color: #cbd5e0; font-weight: 300; }
+    /* --- Scrollbar Customization --- */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--primary-dark); }
 
-    /* Language Switcher (Floating) */
-    .lang-switch {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      z-index: 1000;
-    }
-    .lang-switch button {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.3);
-      color: white;
-      padding: 5px 12px;
-      cursor: pointer;
-      border-radius: 20px;
-      transition: all 0.3s;
-      font-size: 0.9rem;
-    }
-    .lang-switch button:hover, .lang-switch button.active {
-      background: var(--primary);
-      border-color: var(--primary);
-    }
-
+    /* --- Floating Navigation (Glassmorphism) --- */
     nav {
-      background: white;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      padding: 15px 0;
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 800px;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 50px;
+      padding: 10px 30px;
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
+      gap: 20px;
+      z-index: 1000;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      border: var(--glass-border);
+      transition: all 0.3s ease;
     }
 
     nav a {
-      color: var(--text-main);
-      margin: 0 15px;
       text-decoration: none;
-      font-weight: 600;
+      color: var(--text-main);
+      font-weight: 500;
       font-size: 0.95rem;
-      transition: color 0.3s;
-    }
-    nav a:hover { color: var(--primary); }
-
-    /* --- Layout --- */
-    .container {
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 0 20px;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
     }
 
-    section { 
-      background: var(--bg-card);
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-      margin-bottom: 40px;
-      transition: transform 0.3s ease;
+    nav a:hover {
+      color: var(--primary);
+      background: rgba(37, 99, 235, 0.1);
     }
 
-    h2 {
-      font-size: 1.8rem;
-      color: var(--secondary);
-      margin-bottom: 25px;
-      border-left: 5px solid var(--primary);
-      padding-left: 15px;
-    }
-
-    /* --- Profile --- */
-    .profile-header {
+    /* --- Language Switcher --- */
+    .lang-switch {
+      position: fixed;
+      top: 25px;
+      right: 5%;
+      z-index: 1001;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+      gap: 5px;
     }
+
+    .lang-switch button {
+      background: white;
+      border: 1px solid #e2e8f0;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.8rem;
+      border-radius: 8px;
+      transition: all 0.2s;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .lang-switch button.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    /* --- Header / Hero Section --- */
+    header {
+      padding: 160px 20px 100px; /* Top padding for fixed nav */
+      text-align: center;
+      background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
+    }
+
     .profile-photo {
-      width: 160px;
-      height: 160px;
+      width: 180px;
+      height: 180px;
       border-radius: 50%;
       object-fit: cover;
       border: 4px solid white;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      margin-bottom: 20px;
+      box-shadow: 0 20px 40px rgba(37, 99, 235, 0.2);
+      margin-bottom: 25px;
+      transition: transform 0.3s ease;
     }
 
-    /* --- Experience & List items --- */
+    .profile-photo:hover {
+      transform: scale(1.05) rotate(2deg);
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      margin-bottom: 10px;
+      background: linear-gradient(to right, var(--primary), var(--primary-dark));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -1px;
+    }
+
+    header p {
+      font-size: 1.25rem;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* --- Main Container --- */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+
+    /* --- Section Styling --- */
+    section {
+      background: var(--card-bg);
+      border-radius: 24px;
+      padding: 50px;
+      margin-bottom: 50px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0; /* For animation */
+      transform: translateY(20px); /* For animation */
+      animation: fadeInUp 0.8s forwards;
+    }
+
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      width: 60%;
+      height: 4px;
+      background: var(--primary);
+      bottom: -10px;
+      left: 0;
+      border-radius: 2px;
+    }
+
+    /* --- Experience (Timeline Style) --- */
+    .timeline {
+      position: relative;
+      border-left: 3px solid #e2e8f0;
+      padding-left: 30px;
+      margin-left: 10px;
+    }
+
     .job-item {
-      border-bottom: 1px solid #eee;
-      padding-bottom: 20px;
-      margin-bottom: 20px;
+      position: relative;
+      margin-bottom: 40px;
     }
-    .job-item:last-child { border-bottom: none; margin-bottom: 0; }
-    .job-title { font-weight: 700; font-size: 1.1rem; color: var(--secondary); }
-    .job-date { font-size: 0.9rem; color: var(--text-light); margin-bottom: 10px; display: block; }
 
-    /* --- Tech Stack --- */
+    .job-item::before {
+      content: '';
+      position: absolute;
+      left: -39px;
+      top: 5px;
+      width: 16px;
+      height: 16px;
+      background: var(--primary);
+      border-radius: 50%;
+      border: 3px solid white;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+    }
+
+    .job-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .job-date {
+      display: inline-block;
+      font-size: 0.85rem;
+      color: var(--primary);
+      background: rgba(37, 99, 235, 0.1);
+      padding: 4px 10px;
+      border-radius: 12px;
+      margin: 8px 0;
+      font-weight: 600;
+    }
+
+    /* --- Tech Grid --- */
     .tech-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-      gap: 15px;
-      text-align: center;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 20px;
     }
+
     .tech-item {
-      background: #f8f9fa;
-      padding: 15px;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.9rem;
+      background: #f8fafc;
+      padding: 20px;
+      border-radius: 16px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
       display: flex;
       flex-direction: column;
       align-items: center;
-      transition: 0.3s;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 0.9rem;
     }
-    .tech-item:hover { transform: translateY(-3px); background: #eef2f6; }
-    .tech-item img { width: 32px; height: 32px; margin-bottom: 8px; }
 
-    /* --- Projects (Modern Cards) --- */
+    .tech-item:hover {
+      background: white;
+      border-color: var(--primary);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.15);
+    }
+
+    .tech-item img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    /* --- Projects --- */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -167,72 +284,127 @@
     }
 
     .project-card {
-      background: #fff;
-      border: 1px solid #eee;
-      border-radius: 12px;
+      background: white;
+      border-radius: 20px;
       overflow: hidden;
-      transition: all 0.3s ease;
+      border: 1px solid #e2e8f0;
+      transition: all 0.4s ease;
       display: flex;
       flex-direction: column;
     }
 
     .project-card:hover {
-      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-      transform: translateY(-5px);
-      border-color: var(--primary);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
     }
 
     .video-wrapper {
       position: relative;
-      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      padding-bottom: 56.25%;
       height: 0;
       background: #000;
     }
+
     .video-wrapper iframe {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0; width: 100%; height: 100%;
       border: none;
     }
 
-    .card-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
-    .card-content h3 { font-size: 1.25rem; margin-bottom: 10px; color: var(--secondary); }
-    .card-content p { font-size: 0.95rem; color: var(--text-light); margin-bottom: 20px; flex-grow: 1; }
+    .card-content {
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
 
+    .card-content h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      color: var(--text-main);
+    }
+
+    .card-content p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      margin-bottom: 25px;
+      flex-grow: 1;
+    }
+
+    /* Modern Button */
     .btn-buy {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 10px;
       width: 100%;
-      padding: 12px;
-      background: var(--success);
+      padding: 14px;
+      background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
       color: white;
       text-decoration: none;
-      border-radius: 8px;
+      border-radius: 12px;
       font-weight: 600;
-      transition: background 0.3s;
-      margin-top: auto;
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
     }
-    .btn-buy:hover { background: #218838; }
-    .fa-telegram { font-size: 1.2rem; }
 
-    /* --- Footer --- */
-    footer {
-      background: var(--secondary);
-      color: #7f8c8d;
+    .btn-buy:hover {
+      filter: brightness(1.1);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+    }
+
+    /* --- Contact --- */
+    .contact-box {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      padding: 40px;
+      border-radius: 20px;
       text-align: center;
-      padding: 30px;
-      margin-top: 40px;
+    }
+    .contact-box h2 { color: white; border-color: rgba(255,255,255,0.3); }
+    .contact-box h2::after { background: white; }
+    .contact-box a {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 6px;
     }
 
-    /* Mobile */
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    /* --- Animations --- */
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- Mobile Responsive --- */
     @media (max-width: 768px) {
-      header h1 { font-size: 2rem; }
-      nav { display: none; } /* Basitlik için mobilde nav gizlendi veya hamburger menü eklenebilir. Şimdilik scroll yeterli. */
-      .projects-grid { grid-template-columns: 1fr; }
+      header h1 { font-size: 2.5rem; }
+      nav {
+        top: auto;
+        bottom: 20px;
+        width: 95%;
+        padding: 12px 10px;
+        overflow-x: auto;
+        justify-content: flex-start;
+      }
+      nav a { white-space: nowrap; font-size: 0.85rem; }
+      
+      .lang-switch { top: 20px; right: 20px; }
+      header { padding-top: 100px; }
+      
+      section { padding: 30px 20px; }
+      .timeline { padding-left: 20px; }
+      .job-item::before { left: -28px; width: 14px; height: 14px; }
     }
   </style>
 </head>
@@ -244,29 +416,31 @@
     <button onclick="setLang('en')" id="btnEn">ENG</button>
   </div>
 
+  <!-- Navigation (Floating Glass) -->
+  <nav>
+    <a href="#about" id="nav_about"><i class="fas fa-user"></i> Hakkımda</a>
+    <a href="#experience" id="nav_exp"><i class="fas fa-briefcase"></i> Deneyim</a>
+    <a href="#tech" id="nav_tech"><i class="fas fa-code"></i> Teknoloji</a>
+    <a href="#projects" id="nav_proj"><i class="fas fa-laptop-code"></i> Projeler</a>
+    <a href="#contact" id="nav_contact"><i class="fas fa-envelope"></i> İletişim</a>
+  </nav>
+
+  <!-- Header -->
   <header>
+    <!-- FOTOĞRAF: Kendi fotoğrafınızın yolunu buraya yazın -->
+    <img src="f374a544e5-result-20230425123331.png" alt="Mehmet ERTAN" class="profile-photo">
     <div class="header-content">
       <h1 id="t_name">Mehmet ERTAN</h1>
-      <p id="t_role">Yazılım & Sistem Geliştirici</p>
+      <p id="t_role">Yazılım & Sistem Geliştirici | Python & Java & .NET</p>
     </div>
   </header>
-
-  <nav>
-    <a href="#about" id="nav_about">Hakkımda</a>
-    <a href="#experience" id="nav_exp">Deneyim</a>
-    <a href="#tech" id="nav_tech">Teknolojiler</a>
-    <a href="#projects" id="nav_proj">Projeler</a>
-    <a href="#contact" id="nav_contact">İletişim</a>
-  </nav>
 
   <div class="container">
     
     <!-- Hakkımda -->
-    <section id="about" class="profile-header">
-      <!-- FOTOĞRAF YOLUNU BURAYA GİRİNİZ -->
-      <img src="f374a544e5-result-20230425123331.png" alt="Mehmet Ertan" class="profile-photo">
-      <h2 id="t_about_title" style="border:none; margin-bottom:10px;">Hakkımda</h2>
-      <p id="t_about_desc" style="max-width: 800px; margin: 0 auto;">
+    <section id="about">
+      <h2 id="t_about_title">Hakkımda</h2>
+      <p id="t_about_desc" style="font-size: 1.1rem; color: var(--text-light);">
         Bilgisayar sistemleri, ağ yapıları ve sunucu yönetimi konularına ilgi duyuyor, bu alanda eğitimler alıyorum. 
         Python, Java ve ASP.NET başta olmak üzere çeşitli dillerle projeler geliştirdim. 
         Amacım teknik bilgimi geliştirmeye devam ederken sistem yönetimi üzerine deneyim kazanmak.
@@ -276,19 +450,26 @@
     <!-- Deneyim & Staj -->
     <section id="experience">
       <h2 id="t_exp_title">Deneyim & Staj</h2>
-      
-   
+      <div class="timeline">
+        
+        <div class="job-item">
+          <div class="job-title">NAS Accounts (Londra - Uzaktan)</div>
+          <span class="job-date" id="t_exp_date1">Ocak 2025 - Nisan 2025</span>
+          <p id="t_exp_desc1">Part Time Payroll Assistant</p>
+        </div>
 
-      <div class="job-item">
-        <div class="job-title">Türk Standardları Enstitüsü (Staj)</div>
-        <span class="job-date" id="t_exp_date2">Eylül 2024 - Ekim 2024</span>
-        <p id="t_exp_desc2">Spring Boot, Angular & MSSQL ile kurumsal uygulama geliştirme süreçleri.</p>
-      </div>
+        <div class="job-item">
+          <div class="job-title">Türk Standardları Enstitüsü (Staj)</div>
+          <span class="job-date" id="t_exp_date2">Eylül 2024 - Ekim 2024</span>
+          <p id="t_exp_desc2">Spring Boot, Angular & MSSQL ile kurumsal uygulama geliştirme süreçleri.</p>
+        </div>
 
-      <div class="job-item">
-        <div class="job-title">FLO Group (Staj)</div>
-        <span class="job-date" id="t_exp_date3">Ağustos 2023 - Eylül 2023</span>
-        <p id="t_exp_desc3">Veri Analizi ve Perakende Süreçleri üzerine çalışmalar.</p>
+        <div class="job-item">
+          <div class="job-title">FLO Group (Staj)</div>
+          <span class="job-date" id="t_exp_date3">Ağustos 2023 - Eylül 2023</span>
+          <p id="t_exp_desc3">Veri Analizi ve Perakende Süreçleri üzerine çalışmalar.</p>
+        </div>
+
       </div>
     </section>
 
@@ -302,56 +483,55 @@
         <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase">Firebase</div>
         <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="SQL">MSSQL</div>
         <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" alt="Android">Android</div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C">C & C++</div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">HTML & CSS</div>
       </div>
     </section>
 
     <!-- PROJELER -->
     <section id="projects">
-      <h2 id="t_proj_title">Uygulamalarım</h2>
+      <h2 id="t_proj_title">Projelerim</h2>
       <div class="projects-grid">
         
-        <!-- PROJE 1: DDENTAL UI -->
+        <!-- PROJE 1 -->
         <div class="project-card">
           <div class="video-wrapper">
-            <!-- YOUTUBE LINKI BURAYA: src kısmındaki embed linkini değiştirin -->
-            <iframe src="https://www.youtube.com/watch?v=wBja0cdPlbQ&t=24s" title="DDental UI" allowfullscreen></iframe>
+            <!-- YOUTUBE EMBED LINKINIZI SRC KISMINA YAZIN -->
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_BURAYA" title="DDental UI" allowfullscreen></iframe>
           </div>
           <div class="card-content">
             <h3>DDental UI Uygulaması</h3>
             <p id="t_p1_desc">Diş klinikleri için geliştirilmiş modern hasta takip ve randevu yönetim arayüzü. Kolay kullanım ve şık tasarım.</p>
-            <!-- TELEGRAM LINKI -->
             <a href="https://t.me/Mehmetmre" target="_blank" class="btn-buy" id="t_p1_btn">
               <i class="fab fa-telegram-plane"></i> <span class="buy-text">Satın Al / İletişime Geç</span>
             </a>
           </div>
         </div>
 
-        <!-- PROJE 2: HIZLI POS -->
+        <!-- PROJE 2 -->
         <div class="project-card">
           <div class="video-wrapper">
-             <!-- YOUTUBE LINKI BURAYA -->
-            <iframe src="https://youtu.be/IbfBkhp-1DA?si=CDlTLAaKjcHGLvWS" title="Hızlı POS" allowfullscreen></iframe>
+             <!-- YOUTUBE EMBED LINKINIZI SRC KISMINA YAZIN -->
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_BURAYA" title="Hızlı POS" allowfullscreen></iframe>
           </div>
           <div class="card-content">
             <h3>Hızlı POS Uygulaması</h3>
             <p id="t_p2_desc">İşletmeler için barkod okuma, stok düşme ve hızlı satış yapma imkanı sunan masaüstü POS çözümü.</p>
-            <!-- TELEGRAM LINKI -->
             <a href="https://t.me/Mehmetmre" target="_blank" class="btn-buy" id="t_p2_btn">
               <i class="fab fa-telegram-plane"></i> <span class="buy-text">Satın Al / İletişime Geç</span>
             </a>
           </div>
         </div>
 
-        <!-- PROJE 3: MSERVIS -->
+        <!-- PROJE 3 -->
         <div class="project-card">
           <div class="video-wrapper">
-             <!-- YOUTUBE LINKI BURAYA -->
-            <iframe src="https://youtu.be/p22JKq_BQ8w?si=E__YeeHvQd1v4j4N" title="MServis" allowfullscreen></iframe>
+             <!-- YOUTUBE EMBED LINKINIZI SRC KISMINA YAZIN -->
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_BURAYA" title="MServis" allowfullscreen></iframe>
           </div>
           <div class="card-content">
             <h3>MServis Uygulaması</h3>
             <p id="t_p3_desc">Teknik servisler için cihaz kabul, onarım durumu takibi ve müşteri bilgilendirme sistemi.</p>
-            <!-- TELEGRAM LINKI -->
             <a href="https://t.me/Mehmetmre" target="_blank" class="btn-buy" id="t_p3_btn">
               <i class="fab fa-telegram-plane"></i> <span class="buy-text">Satın Al / İletişime Geç</span>
             </a>
@@ -362,49 +542,50 @@
     </section>
 
     <!-- İletişim -->
-    <section id="contact" style="text-align:center;">
+    <div id="contact" class="contact-box">
       <h2 id="t_contact_title">İletişim</h2>
-      <p>Email: <a href="mailto:ertanm347@gmail.com" style="color:var(--primary); text-decoration:none;">ertanm347@gmail.com</a></p>
-    </section>
+      <p style="color: rgba(255,255,255,0.8); margin-bottom: 10px;">Benimle e-posta yoluyla iletişime geçebilirsiniz:</p>
+      <a href="mailto:ertanm347@gmail.com">ertanm347@gmail.com</a>
+    </div>
 
   </div>
 
   <footer>
-    <p>© 2025 Mehmet ERTAN. Tüm Hakları Saklıdır.</p>
+    <p>© 2025 Mehmet ERTAN. Designed for GitHub Pages.</p>
   </footer>
 
   <script>
-    // Çeviri Verileri
+    // --- Dil Seçeneği Scripti ---
     const langData = {
       tr: {
-        role: "Yazılım & Sistem Geliştirici",
-        nav_about: "Hakkımda",
-        nav_exp: "Deneyim",
-        nav_tech: "Teknolojiler",
-        nav_proj: "Projeler",
-        nav_contact: "İletişim",
+        role: "Yazılım & Sistem Geliştirici | Python & Java & .NET",
+        nav_about: '<i class="fas fa-user"></i> Hakkımda',
+        nav_exp: '<i class="fas fa-briefcase"></i> Deneyim',
+        nav_tech: '<i class="fas fa-code"></i> Teknoloji',
+        nav_proj: '<i class="fas fa-laptop-code"></i> Projeler',
+        nav_contact: '<i class="fas fa-envelope"></i> İletişim',
         about_title: "Hakkımda",
         about_desc: "Bilgisayar sistemleri, ağ yapıları ve sunucu yönetimi konularına ilgi duyuyor, bu alanda eğitimler alıyorum. Python, Java ve ASP.NET başta olmak üzere çeşitli dillerle projeler geliştirdim. Amacım teknik bilgimi geliştirmeye devam ederken sistem yönetimi üzerine deneyim kazanmak.",
         exp_title: "Deneyim & Staj",
         exp_date1: "Ocak 2025 - Nisan 2025",
-        exp_desc1: "Part Time Payroll Assistant",
+        exp_desc1: "Yarı Zamanlı Bordro Asistanı",
         exp_desc2: "Spring Boot, Angular & MSSQL ile kurumsal uygulama geliştirme süreçleri.",
         exp_desc3: "Veri Analizi ve Perakende Süreçleri üzerine çalışmalar.",
         tech_title: "Teknolojiler",
-        proj_title: "Uygulamalarım",
-        p1_desc: "Diş klinikleri için geliştirilmiş modern hasta takip ve randevu yönetim arayüzü. Kolay kullanım ve şık tasarım.",
+        proj_title: "Projelerim",
+        p1_desc: "Diş klinikleri için geliştirilmiş modern hasta takip ve randevu yönetim arayüzü.",
         p2_desc: "İşletmeler için barkod okuma, stok düşme ve hızlı satış yapma imkanı sunan masaüstü POS çözümü.",
         p3_desc: "Teknik servisler için cihaz kabul, onarım durumu takibi ve müşteri bilgilendirme sistemi.",
         buy_btn: "Satın Al / İletişime Geç",
         contact_title: "İletişim"
       },
       en: {
-        role: "Software & System Developer",
-        nav_about: "About",
-        nav_exp: "Experience",
-        nav_tech: "Technologies",
-        nav_proj: "Projects",
-        nav_contact: "Contact",
+        role: "Software & System Developer | Python & Java & .NET",
+        nav_about: '<i class="fas fa-user"></i> About',
+        nav_exp: '<i class="fas fa-briefcase"></i> Experience',
+        nav_tech: '<i class="fas fa-code"></i> Tech',
+        nav_proj: '<i class="fas fa-laptop-code"></i> Projects',
+        nav_contact: '<i class="fas fa-envelope"></i> Contact',
         about_title: "About Me",
         about_desc: "I am interested in computer systems, network structures, and server management. I have developed projects using various languages, primarily Python, Java, and ASP.NET. My goal is to gain experience in system management while continuing to improve my technical knowledge.",
         exp_title: "Experience & Internship",
@@ -413,7 +594,7 @@
         exp_desc2: "Enterprise application development processes with Spring Boot, Angular & MSSQL.",
         exp_desc3: "Studies on Data Analysis and Retail Processes.",
         tech_title: "Technologies",
-        proj_title: "My Applications",
+        proj_title: "My Projects",
         p1_desc: "Modern patient tracking and appointment management interface developed for dental clinics.",
         p2_desc: "Desktop POS solution offering barcode reading, stock deduction, and quick sales for businesses.",
         p3_desc: "Device acceptance, repair status tracking, and customer notification system for technical services.",
@@ -423,18 +604,19 @@
     };
 
     function setLang(lang) {
-      // Buton aktiflik durumu
       document.getElementById('btnTr').classList.toggle('active', lang === 'tr');
       document.getElementById('btnEn').classList.toggle('active', lang === 'en');
 
-      // Metinleri güncelle
       const d = langData[lang];
       document.getElementById('t_role').textContent = d.role;
-      document.getElementById('nav_about').textContent = d.nav_about;
-      document.getElementById('nav_exp').textContent = d.nav_exp;
-      document.getElementById('nav_tech').textContent = d.nav_tech;
-      document.getElementById('nav_proj').textContent = d.nav_proj;
-      document.getElementById('nav_contact').textContent = d.nav_contact;
+      
+      // Nav icons HTML support
+      document.getElementById('nav_about').innerHTML = d.nav_about;
+      document.getElementById('nav_exp').innerHTML = d.nav_exp;
+      document.getElementById('nav_tech').innerHTML = d.nav_tech;
+      document.getElementById('nav_proj').innerHTML = d.nav_proj;
+      document.getElementById('nav_contact').innerHTML = d.nav_contact;
+
       document.getElementById('t_about_title').textContent = d.about_title;
       document.getElementById('t_about_desc').textContent = d.about_desc;
       document.getElementById('t_exp_title').textContent = d.exp_title;
@@ -445,18 +627,29 @@
       document.getElementById('t_tech_title').textContent = d.tech_title;
       document.getElementById('t_proj_title').textContent = d.proj_title;
       
-      // Proje Açıklamaları
       document.getElementById('t_p1_desc').textContent = d.p1_desc;
       document.getElementById('t_p2_desc').textContent = d.p2_desc;
       document.getElementById('t_p3_desc').textContent = d.p3_desc;
 
-      // Buton Yazıları
       const buttons = document.querySelectorAll('.buy-text');
       buttons.forEach(span => span.textContent = d.buy_btn);
 
       document.getElementById('t_contact_title').textContent = d.contact_title;
     }
+
+    // Scroll Animation Trigger
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
   </script>
 </body>
 </html>
-
