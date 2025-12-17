@@ -1,24 +1,40 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+  <meta name="google-site-verification" content="FlZzroU7uEzBETG0Ba1yQL7z_Kqf1SetWDslB3Zch6M" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mehmet ERTAN | Portfolio</title>
   
-  <!-- Fonts: Inter & Poppins -->
+  <!-- SEO: Başlık ve Açıklama -->
+  <title>Mehmet ERTAN | Yazılım Geliştirici & Sistem Çözümleri (DDental, Hızlı POS, MServis)</title>
+  <meta name="description" content="Mehmet ERTAN portfolyosu. Diş kliniği otomasyonu (DDental), barkodlu satış sistemi (Hızlı POS) ve teknik servis takip yazılımı (MServis) çözümleri. Python, Java ve .NET geliştirici.">
+  <meta name="keywords" content="Mehmet Ertan, Yazılım Geliştirici, Diş Hekimi Programı, DDental, Hızlı POS, Barkodlu Satış Programı, Teknik Servis Yazılımı, MServis, Python, Java, Sistem Geliştirici">
+  <meta name="author" content="Mehmet ERTAN">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Canonical URL (Sitenizin asıl adresi buraya) -->
+  <link rel="canonical" href="https://mehmetmre.github.io/portfolio/" />
+
+  <!-- Sosyal Medya Paylaşım Kartları (Open Graph) -->
+  <meta property="og:title" content="Mehmet ERTAN | Yazılım Çözümleri">
+  <meta property="og:description" content="Diş Kliniği, Market POS ve Teknik Servis yazılımları için profesyonel çözümler.">
+  <meta property="og:image" content="f374a544e5-result-20230425123331.png">
+  <meta property="og:url" content="https://mehmetmre.github.io/portfolio/">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
+    /* ... CSS AYNI KALDI (Değişiklik yok) ... */
     :root {
-      --primary: #2563eb;       /* Modern Royal Blue */
+      --primary: #2563eb;       
       --primary-dark: #1e40af;
-      --accent: #0ea5e9;        /* Sky Blue */
-      --dark-bg: #0f172a;       /* Slate 900 */
+      --accent: #0ea5e9;        
+      --dark-bg: #0f172a;       
       --card-bg: #ffffff;
       --text-main: #1e293b;
       --text-light: #64748b;
@@ -45,13 +61,11 @@
       color: var(--dark-bg);
     }
 
-    /* --- Scrollbar Customization --- */
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: #f1f1f1; }
     ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
     ::-webkit-scrollbar-thumb:hover { background: var(--primary-dark); }
 
-    /* --- Floating Navigation (Glassmorphism) --- */
     nav {
       position: fixed;
       top: 20px;
@@ -88,7 +102,6 @@
       background: rgba(37, 99, 235, 0.1);
     }
 
-    /* --- Language Switcher --- */
     .lang-switch {
       position: fixed;
       top: 25px;
@@ -116,9 +129,8 @@
       border-color: var(--primary);
     }
 
-    /* --- Header / Hero Section --- */
     header {
-      padding: 160px 20px 100px; /* Top padding for fixed nav */
+      padding: 160px 20px 100px;
       text-align: center;
       background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
     }
@@ -154,14 +166,12 @@
       margin: 0 auto;
     }
 
-    /* --- Main Container --- */
     .container {
       max-width: 1100px;
       margin: 0 auto;
       padding: 0 20px 60px;
     }
 
-    /* --- Section Styling --- */
     section {
       background: var(--card-bg);
       border-radius: 24px;
@@ -170,8 +180,8 @@
       box-shadow: var(--shadow-sm);
       border: 1px solid rgba(255, 255, 255, 0.6);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      opacity: 0; /* For animation */
-      transform: translateY(20px); /* For animation */
+      opacity: 0;
+      transform: translateY(20px);
       animation: fadeInUp 0.8s forwards;
     }
 
@@ -198,7 +208,6 @@
       border-radius: 2px;
     }
 
-    /* --- Experience (Timeline Style) --- */
     .timeline {
       position: relative;
       border-left: 3px solid #e2e8f0;
@@ -241,7 +250,6 @@
       font-weight: 600;
     }
 
-    /* --- Tech Grid --- */
     .tech-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
@@ -276,7 +284,6 @@
       object-fit: contain;
     }
 
-    /* --- Projects --- */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -331,7 +338,6 @@
       flex-grow: 1;
     }
 
-    /* Modern Button */
     .btn-buy {
       display: flex;
       align-items: center;
@@ -355,7 +361,6 @@
       box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
     }
 
-    /* --- Contact --- */
     .contact-box {
       background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
       color: white;
@@ -381,12 +386,10 @@
       font-size: 0.9rem;
     }
 
-    /* --- Animations --- */
     @keyframes fadeInUp {
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* --- Mobile Responsive --- */
     @media (max-width: 768px) {
       header h1 { font-size: 2.5rem; }
       nav {
@@ -407,37 +410,71 @@
       .job-item::before { left: -28px; width: 14px; height: 14px; }
     }
   </style>
+
+  <!-- Google Structured Data (Schema Markup) - SEO İÇİN ÇOK ÖNEMLİ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Mehmet ERTAN",
+      "jobTitle": "Yazılım Geliştirici",
+      "description": "Bilgisayar sistemleri, Python, Java ve .NET geliştirici. Diş kliniği ve POS sistemleri uzmanı.",
+      "knowsAbout": ["Python", "Java", "ASP.NET", "Firebase", "SQL", "Network Systems"]
+    },
+    "hasPart": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "DDental UI",
+        "operatingSystem": "Windows",
+        "applicationCategory": "BusinessApplication",
+        "description": "Diş klinikleri için hasta takip ve randevu yönetim sistemi."
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Hızlı POS",
+        "operatingSystem": "Windows",
+        "applicationCategory": "PointOfSale",
+        "description": "İşletmeler için barkodlu satış ve stok takip programı."
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "MServis",
+        "operatingSystem": "Windows",
+        "applicationCategory": "BusinessApplication",
+        "description": "Teknik servis cihaz takip ve müşteri bilgilendirme yazılımı."
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
-  <!-- Language Switcher -->
   <div class="lang-switch">
     <button onclick="setLang('tr')" id="btnTr" class="active">TR</button>
     <button onclick="setLang('en')" id="btnEn">ENG</button>
   </div>
 
-  <!-- Navigation (Floating Glass) -->
   <nav>
-    <a href="#about" id="nav_about"><i class="fas fa-user"></i> Hakkımda</a>
-    <a href="#experience" id="nav_exp"><i class="fas fa-briefcase"></i> Deneyim</a>
-    <a href="#tech" id="nav_tech"><i class="fas fa-code"></i> Teknoloji</a>
-    <a href="#projects" id="nav_proj"><i class="fas fa-laptop-code"></i> Projeler</a>
-    <a href="#contact" id="nav_contact"><i class="fas fa-envelope"></i> İletişim</a>
+    <a href="#about" id="nav_about" aria-label="Hakkımda"><i class="fas fa-user"></i> Hakkımda</a>
+    <a href="#experience" id="nav_exp" aria-label="Deneyim"><i class="fas fa-briefcase"></i> Deneyim</a>
+    <a href="#tech" id="nav_tech" aria-label="Teknolojiler"><i class="fas fa-code"></i> Teknoloji</a>
+    <a href="#projects" id="nav_proj" aria-label="Projeler"><i class="fas fa-laptop-code"></i> Projeler</a>
+    <a href="#contact" id="nav_contact" aria-label="İletişim"><i class="fas fa-envelope"></i> İletişim</a>
   </nav>
 
-  <!-- Header -->
   <header>
-    <!-- FOTOĞRAF: Kendi fotoğrafınızın yolunu buraya yazın -->
-    <img src="f374a544e5-result-20230425123331.png" alt="Mehmet ERTAN" class="profile-photo">
+    <!-- Alt etiketi SEO için önemlidir -->
+    <img src="f374a544e5-result-20230425123331.png" alt="Mehmet ERTAN Yazılım Geliştirici Profil Fotoğrafı" class="profile-photo">
     <div class="header-content">
       <h1 id="t_name">Mehmet ERTAN</h1>
       <p id="t_role">Yazılım & Sistem Geliştirici | Python & Java & .NET</p>
     </div>
   </header>
 
-  <div class="container">
+  <main class="container">
     
-    <!-- Hakkımda -->
     <section id="about">
       <h2 id="t_about_title">Hakkımda</h2>
       <p id="t_about_desc" style="font-size: 1.1rem; color: var(--text-light);">
@@ -447,12 +484,10 @@
       </p>
     </section>
 
-    <!-- Deneyim & Staj -->
     <section id="experience">
       <h2 id="t_exp_title">Deneyim & Staj</h2>
       <div class="timeline">
-      
-
+        
         <div class="job-item">
           <div class="job-title">Türk Standardları Enstitüsü (Staj)</div>
           <span class="job-date" id="t_exp_date2">Eylül 2024 - Ekim 2024</span>
@@ -468,94 +503,88 @@
       </div>
     </section>
 
-    <!-- Teknolojiler -->
     <section id="tech">
       <h2 id="t_tech_title">Teknolojiler</h2>
       <div class="tech-grid">
-        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">Python</div>
-        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">Java</div>
-        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt=".NET">ASP.NET</div>
-        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase">Firebase</div>
-        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="SQL">MSSQL</div>
-        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" alt="Android">Android</div>
-        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C">C & C++</div>
-        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">HTML & CSS</div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python Geliştirme" loading="lazy">Python</div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java Yazılım" loading="lazy">Java</div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt=".NET Framework" loading="lazy">ASP.NET</div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Google Firebase" loading="lazy">Firebase</div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="MSSQL Veritabanı" loading="lazy">MSSQL</div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" alt="Android Uygulama" loading="lazy">Android</div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C ve C++" loading="lazy">C & C++</div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5 Web" loading="lazy">HTML & CSS</div>
       </div>
     </section>
 
-    <!-- PROJELER -->
+    <!-- PROJELER (Anahtar Kelime Odaklı Başlıklar) -->
     <section id="projects">
-      <h2 id="t_proj_title">Projelerim</h2>
+      <h2 id="t_proj_title">Yazılım Çözümlerim</h2>
       <div class="projects-grid">
         
         <!-- PROJE 1 -->
-        <div class="project-card">
+        <article class="project-card">
           <div class="video-wrapper">
-            <!-- YOUTUBE EMBED LINKINIZI SRC KISMINA YAZIN -->
-            
-               <iframe src="https://www.youtube.com/embed/wBja0cdPlbQ" title="DDental UI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+             <!-- Youtube Embed Linkinizi buraya ekleyin -->
+             <iframe src="https://www.youtube.com/embed/VIDEO_ID_HERE" title="DDental Diş Kliniği Yazılımı" loading="lazy" frameborder="0" allowfullscreen></iframe>
           </div>
           <div class="card-content">
-            <h3>DDental UI Uygulaması</h3>
-            <p id="t_p1_desc">Diş klinikleri için geliştirilmiş modern hasta takip ve randevu yönetim arayüzü. Kolay kullanım ve şık tasarım.</p>
-            <a href="https://t.me/Mehmetmre" target="_blank" class="btn-buy" id="t_p1_btn">
+            <!-- SEO Başlığı: İnsanlar "Diş Kliniği Yazılımı" diye aratır -->
+            <h3>DDental UI - Diş Kliniği Yazılımı</h3>
+            <p id="t_p1_desc">Diş klinikleri için hasta takip programı ve randevu yönetim sistemi. Modern arayüz ile klinik süreçlerini hızlandırın.</p>
+            <a href="https://t.me/Mehmetmre" target="_blank" class="btn-buy" id="t_p1_btn" aria-label="DDental Satın Al">
               <i class="fab fa-telegram-plane"></i> <span class="buy-text">Satın Al / İletişime Geç</span>
             </a>
           </div>
-        </div>
+        </article>
 
         <!-- PROJE 2 -->
-        <div class="project-card">
+        <article class="project-card">
           <div class="video-wrapper">
-             <!-- YOUTUBE EMBED LINKINIZI SRC KISMINA YAZIN -->
-            
-  <iframe src="https://www.youtube.com/embed/IbfBkhp-1DA" title="Hızlı POS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_HERE" title="Hızlı POS Barkodlu Satış" loading="lazy" frameborder="0" allowfullscreen></iframe>
           </div>
           <div class="card-content">
-            <h3>Hızlı POS Uygulaması</h3>
-            <p id="t_p2_desc">İşletmeler için barkod okuma, stok düşme ve hızlı satış yapma imkanı sunan masaüstü POS çözümü.</p>
-            <a href="https://t.me/Mehmetmre" target="_blank" class="btn-buy" id="t_p2_btn">
+            <!-- SEO Başlığı: "Barkodlu Satış Programı" -->
+            <h3>Hızlı POS - Barkodlu Satış Programı</h3>
+            <p id="t_p2_desc">Market ve işletmeler için barkod okuyucu uyumlu, stok takibi yapabilen, hızlı ve kolay masaüstü POS satış yazılımı.</p>
+            <a href="https://t.me/Mehmetmre" target="_blank" class="btn-buy" id="t_p2_btn" aria-label="Hızlı POS Satın Al">
               <i class="fab fa-telegram-plane"></i> <span class="buy-text">Satın Al / İletişime Geç</span>
             </a>
           </div>
-        </div>
+        </article>
 
         <!-- PROJE 3 -->
-        <div class="project-card">
+        <article class="project-card">
           <div class="video-wrapper">
-             <!-- YOUTUBE EMBED LINKINIZI SRC KISMINA YAZIN -->
-       
-              <iframe src="https://www.youtube.com/embed/p22JKq_BQ8w" title="MServis" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_HERE" title="MServis Teknik Servis Programı" loading="lazy" frameborder="0" allowfullscreen></iframe>
           </div>
           <div class="card-content">
-            <h3>MServis Uygulaması</h3>
-            <p id="t_p3_desc">Teknik servisler için cihaz kabul, onarım durumu takibi ve müşteri bilgilendirme sistemi.</p>
-            <a href="https://t.me/Mehmetmre" target="_blank" class="btn-buy" id="t_p3_btn">
+            <!-- SEO Başlığı: "Teknik Servis Takip Programı" -->
+            <h3>MServis - Teknik Servis Takip Programı</h3>
+            <p id="t_p3_desc">Teknik servisler için cihaz kabul, arıza durumu sorgulama ve müşteri bilgilendirme (SMS/Mail) sistemi.</p>
+            <a href="https://t.me/Mehmetmre" target="_blank" class="btn-buy" id="t_p3_btn" aria-label="MServis Satın Al">
               <i class="fab fa-telegram-plane"></i> <span class="buy-text">Satın Al / İletişime Geç</span>
             </a>
           </div>
-        </div>
+        </article>
 
       </div>
     </section>
 
-    <!-- İletişim -->
     <div id="contact" class="contact-box">
       <h2 id="t_contact_title">İletişim</h2>
-      <p style="color: rgba(255,255,255,0.8); margin-bottom: 10px;">Benimle e-posta yoluyla iletişime geçebilirsiniz:</p>
+      <p style="color: rgba(255,255,255,0.8); margin-bottom: 10px;">Yazılım talepleriniz için e-posta yoluyla iletişime geçebilirsiniz:</p>
       <a href="mailto:ertanm347@gmail.com">ertanm347@gmail.com</a>
     </div>
 
-  </div>
+  </main>
 
   <footer>
     <p>© 2025 Mehmet ERTAN. Designed for GitHub Pages.</p>
   </footer>
 
   <script>
-    // --- Dil Seçeneği Scripti ---
+    /* ... JAVASCRIPT AYNI KALDI (Değişiklik yok) ... */
     const langData = {
       tr: {
         role: "Yazılım & Sistem Geliştirici | Python & Java & .NET",
@@ -572,10 +601,10 @@
         exp_desc2: "Spring Boot, Angular & MSSQL ile kurumsal uygulama geliştirme süreçleri.",
         exp_desc3: "Veri Analizi ve Perakende Süreçleri üzerine çalışmalar.",
         tech_title: "Teknolojiler",
-        proj_title: "Projelerim",
-        p1_desc: "Diş klinikleri için geliştirilmiş modern hasta takip ve randevu yönetim arayüzü.",
-        p2_desc: "İşletmeler için barkod okuma, stok düşme ve hızlı satış yapma imkanı sunan masaüstü POS çözümü.",
-        p3_desc: "Teknik servisler için cihaz kabul, onarım durumu takibi ve müşteri bilgilendirme sistemi.",
+        proj_title: "Yazılım Çözümlerim",
+        p1_desc: "Diş klinikleri için hasta takip programı ve randevu yönetim sistemi. Modern arayüz ile klinik süreçlerini hızlandırın.",
+        p2_desc: "Market ve işletmeler için barkod okuyucu uyumlu, stok takibi yapabilen, hızlı ve kolay masaüstü POS satış yazılımı.",
+        p3_desc: "Teknik servisler için cihaz kabul, arıza durumu sorgulama ve müşteri bilgilendirme (SMS/Mail) sistemi.",
         buy_btn: "Satın Al / İletişime Geç",
         contact_title: "İletişim"
       },
@@ -594,10 +623,10 @@
         exp_desc2: "Enterprise application development processes with Spring Boot, Angular & MSSQL.",
         exp_desc3: "Studies on Data Analysis and Retail Processes.",
         tech_title: "Technologies",
-        proj_title: "My Projects",
-        p1_desc: "Modern patient tracking and appointment management interface developed for dental clinics.",
-        p2_desc: "Desktop POS solution offering barcode reading, stock deduction, and quick sales for businesses.",
-        p3_desc: "Device acceptance, repair status tracking, and customer notification system for technical services.",
+        proj_title: "Software Solutions",
+        p1_desc: "Patient tracking and appointment management system for dental clinics. Accelerate clinic processes with modern interface.",
+        p2_desc: "Desktop POS sales software compatible with barcode readers for markets and businesses, featuring stock tracking.",
+        p3_desc: "Device acceptance, repair status tracking, and customer notification (SMS/Mail) system for technical services.",
         buy_btn: "Buy / Contact",
         contact_title: "Contact"
       }
@@ -610,7 +639,6 @@
       const d = langData[lang];
       document.getElementById('t_role').textContent = d.role;
       
-      // Nav icons HTML support
       document.getElementById('nav_about').innerHTML = d.nav_about;
       document.getElementById('nav_exp').innerHTML = d.nav_exp;
       document.getElementById('nav_tech').innerHTML = d.nav_tech;
@@ -620,9 +648,9 @@
       document.getElementById('t_about_title').textContent = d.about_title;
       document.getElementById('t_about_desc').textContent = d.about_desc;
       document.getElementById('t_exp_title').textContent = d.exp_title;
-      document.getElementById('t_exp_date1').textContent = d.exp_date1;
-      document.getElementById('t_exp_desc1').textContent = d.exp_desc1;
+      document.getElementById('t_exp_date2').textContent = d.exp_date2; // Staj 1
       document.getElementById('t_exp_desc2').textContent = d.exp_desc2;
+      document.getElementById('t_exp_date3').textContent = d.exp_date3; // Staj 2
       document.getElementById('t_exp_desc3').textContent = d.exp_desc3;
       document.getElementById('t_tech_title').textContent = d.tech_title;
       document.getElementById('t_proj_title').textContent = d.proj_title;
@@ -637,7 +665,6 @@
       document.getElementById('t_contact_title').textContent = d.contact_title;
     }
 
-    // Scroll Animation Trigger
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -653,5 +680,3 @@
   </script>
 </body>
 </html>
-
-
