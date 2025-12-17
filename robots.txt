@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Site Haritası Yolu
+Sitemap: https://mehmetmre.github.io/sitemap.xml
